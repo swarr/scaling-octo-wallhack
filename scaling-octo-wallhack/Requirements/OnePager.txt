@@ -1,0 +1,29 @@
+This project suppose to be some research work about possibility of using neural 
+networks in task of compressing video data.
+
+The main goal is to receive working application which receiving some video file 
+or video files as input will create file or files which later could be replayed 
+with the same program and output video should be very similar to what was in 
+input.
+
+Research part will include comparison with currently widely used video coders
+in following measurements: compress ratio (compressed file size/original file 
+size), performance (time required to compress few fixed length video files).
+Note, that different types of videos should be tested: featured films, videos 
+with a lot of static data (videos recorded by security cameras), cartoons, 
+videos recorded by car recorder.
+
+As core of program will be used Restricted Boltzmann Machine (RBM) with multiple
+layers. As input RBM receives frame, then calculate it's layers
+states in order from input to last and the state of the last layer is saved.
+Then next input frame is used.
+
+Restoring original video input given set of last layers occurs backward way - 
+receiving last layer state and calculating first layer which is the restored 
+frame.
+
+As output system should save all parameters of RBM and all states of last 
+layers. In order to save space, it will worth having one RBM for few video files.
+
+The secondary research task is to check how well the product will use RBM 
+obtained on one set of videos on other videos, not used in training.
